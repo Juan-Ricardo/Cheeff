@@ -1,14 +1,22 @@
 package com.pe.cheeff.home;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.pe.cheeff.MainActivity;
 import com.pe.cheeff.R;
 import com.pe.cheeff.socket.SocketManager;
 import com.pe.cheeff.socket.SocketUtils;
+import com.pe.cheeff.utilities.Utilities;
 
 import io.socket.emitter.Emitter;
 
@@ -40,8 +48,9 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         Object arg = args[0];
-                        Toast.makeText(getBaseContext(), "" + arg, Toast.LENGTH_LONG).show();
-                        Log.v("ordendecompra: ", "" + arg);
+                        Utilities.createNotification(getApplicationContext());
+                        //Toast.makeText(getBaseContext(), "" + arg, Toast.LENGTH_LONG).show();
+                        //Log.v("ordendecompra: ", "" + arg);
                     }
                 });
 
