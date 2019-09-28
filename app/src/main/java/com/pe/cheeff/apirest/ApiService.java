@@ -1,5 +1,6 @@
 package com.pe.cheeff.apirest;
 
+import com.pe.cheeff.home.model.PurchaseOrderResponse;
 import com.pe.cheeff.login.UserRequest;
 import com.pe.cheeff.login.UserResponse;
 
@@ -13,8 +14,7 @@ public interface ApiService {
     @POST("/auth/usuarios-login")
     Call<UserResponse> login(@Body UserRequest userRequest);
 
-    //@POST("/clientes")
-    //Call<CustomerResponse> createAccount(@Body CustomerResquest customerResquest);
-
+    @GET("/ordenes-de-compra")
+    Call<PurchaseOrderResponse> getPurchaseOrderResponse();
 
 }
